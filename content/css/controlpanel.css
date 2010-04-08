@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.deleteRule { display: block;
+              background: transparent url(cross.png) no-repeat; 
+              width: 16px;
+              height: 16px;
+              text-indent: -9999px;}
+             
+.actions a { text-align: center; }
+
+table#rules td { border: 1px solid #CCC; }
+
+.ui-tabs .ui-tabs-nav li a {
+    float: none;
+}
