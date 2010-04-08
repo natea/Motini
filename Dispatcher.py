@@ -30,6 +30,11 @@ class Dispatcher():
     #@wsgify
     def __call__(self,environ,start_response):
         req = Request(environ)
+        print "DISPATCH"
+        print environ
+        print req.path_info
+        print req.script_name
+        print "============="
         if req.path_info.startswith('/start'):
             if req.method == "POST":
                 return self.start.write_rules(environ,start_response)

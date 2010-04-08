@@ -38,18 +38,15 @@ class MotiniController():
         self.my_path_info = ""
         
     def _proxy_middleware(self, req, caching=True):
+        if not req.path_info:
+            req.path_info = '/'
         # if self.my_path_info != '/':
         #     # self.my_path_info = '/'+self.my_path_info
         #     #proxy_url = '''http://%s%s''' % (str(self.host),str(req.path_info))
         # else:
         #     proxy_url = '''http://%s/''' % (str(self.host))
-
-        print self.host
-        print req.path_info
         proxy_url = '''http://%s/''' % (str(self.host))
 
-        #print req.environ["PATH_INFO"]
-        print "PROXY URL: %s" % proxy_url
         # the proxied host, used for link re-writing
         dest_href = '''http://%s/''' % (str(self.host))    
 
@@ -67,11 +64,10 @@ class MotiniController():
     def clip(self,req):
         '''proxy load a page for clipping'''
         self.base_script = '/motini/clip/'
-        print req.path_info
+
         req.path_info_pop()
         req.path_info_pop()
         self.host = req.path_info_pop()
-        print "IN CLIP: %s" % self.host
         self.my_path_info = req.path_info
 
         # add the proxy and link-rewriter WSGI middleware to these request on
@@ -128,7 +124,7 @@ class LinkRewriterMiddleware(object):
         # req.application_url is the base URL not including path_info or the query string:
         req_href = req.application_url
         def link_repl_func(link):
-            # remove all relative links
+            #remove all relative links
             # link = urlparse.urljoin(dest_href, link)
             # return link
 
@@ -137,7 +133,7 @@ class LinkRewriterMiddleware(object):
             if not link.startswith(dest_href):
                 # Not a local link
                 return link
-            new_url = req_href + link[len(dest_href):]
+            new_url = req_href + '/' + link[len(dest_href):]
             return new_url
         resp = req.get_response(self.app)
         # This decodes any possible gzipped content:
@@ -170,11 +166,8 @@ class MotiniRules(object):
 
     def __init__(self,rules=None):
         '''init the Motini rules.'''
-        data = {}
-        data['template_id'] = 'rules'
 
-        data['rules'] = rules
-
+        
         rules_xml = '''<?xml version="1.0"?>
         <ruleset>
         <match path="/motini/theme" class="swap"/>
