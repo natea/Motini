@@ -30,18 +30,11 @@ class Dispatcher():
     #@wsgify
     def __call__(self,environ,start_response):
         req = Request(environ)
-        print "DISPATCH"
-        print environ
-        print req.path_info
-        print req.script_name
-        print "============="
         if req.path_info.startswith('/start'):
             if req.method == "POST":
                 return self.start.write_rules(environ,start_response)
             return self.start.index(environ,start_response)
         elif req.path_info.startswith('/motini/clip'):
-            print req.path_info
-            print req.application_url
             return self.motini.clip(environ,start_response)
         elif req.path_info.startswith('/motini/theme'):
             return self.motini.theme(environ,start_response)

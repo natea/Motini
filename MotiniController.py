@@ -147,7 +147,6 @@ class LinkRewriterMiddleware(object):
         if resp.location:
             # self.dest_href = resp.location
             link = urlparse.urljoin(dest_href, resp.location)
-            print "REDIRECT %s" % resp.location
             match = re.search(r'^([^\/]*)(.*)',resp.location.lstrip('http://'))
             if match:
                 new_host = match.group(1)
