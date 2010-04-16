@@ -11,8 +11,6 @@ import sys
 import os
 import unittest
 
-from routes import redirect_to
-
 from webob.dec import wsgify
 from webob import exc, Request, Response
 
