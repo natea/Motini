@@ -23,7 +23,7 @@ class RulesController():
         try:
             rule_file = open('/var/tmp/rules_list.dat','r')
             rules = pickle.load(rule_file)
-        except pickle.PickleError:
+        except:
             rules = None
         
         rules_xml = '''<?xml version="1.0"?>

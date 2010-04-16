@@ -26,7 +26,7 @@ class StartController():
         try:
             form_vars = req.params
             self.url = form_vars["u"]
-            self.url = self.url.lstrip('http://')
+            self.url = self.url.replace('http://','')
         except KeyError:
             self.url = ''
     
@@ -113,7 +113,7 @@ class StartController():
             rule_file.close()
         except:
             rules = []
-            return "Failed to read the rules."
+            #return "Failed to read the rules."
 
         try:
             command = form_vars['command']

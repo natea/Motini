@@ -16,7 +16,6 @@ help_message = '''
 Sample Motini web-framework-less
 '''
 
-
 class Usage(Exception):
     def __init__(self, msg):
         self.msg = msg
