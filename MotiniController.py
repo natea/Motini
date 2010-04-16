@@ -40,11 +40,7 @@ class MotiniController():
     def _proxy_middleware(self, req, caching=True):
         if not req.path_info:
             req.path_info = '/'
-        # if self.my_path_info != '/':
-        #     # self.my_path_info = '/'+self.my_path_info
-        #     #proxy_url = '''http://%s%s''' % (str(self.host),str(req.path_info))
-        # else:
-        #     proxy_url = '''http://%s/''' % (str(self.host))
+ 
         proxy_url = '''http://%s/''' % (str(self.host))
 
         # the proxied host, used for link re-writing
@@ -89,7 +85,7 @@ class MotiniController():
         try:
             rule_file = open('/var/tmp/rules_list.dat','r')
             temporary_rules = pickle.load(rule_file)
-        except pickle.PickleError:
+        except:
             temporary_rules = None
         
         # add the proxy, link-rewriter, and deliverance x-from layers to the WSGI middleware 
@@ -118,21 +114,23 @@ class LinkRewriterMiddleware(object):
 
     @wsgify
     def __call__(self, req):
-
         dest_path = req.path_info
         dest_href = self.dest_href + dest_path
         # req.application_url is the base URL not including path_info or the query string:
         req_href = req.application_url
         def link_repl_func(link):
-            #remove all relative links
-            # link = urlparse.urljoin(dest_href, link)
-            # return link
+            '''Rewrite all links from the proxied domain to map to the proxy itself'''
 
-            # Rewrite all links from the proxied domain to map
-            # to the proxy itself
+            # remove relative URLs
+            if not link.startswith('http://'):
+                link = urlparse.urljoin(dest_href, link)
+
+            # a remote link, don't mess with it
             if not link.startswith(dest_href):
                 # Not a local link
                 return link
+
+            # a local link, change to the proxy address
             new_url = req_href + '/' + link[len(dest_href):]
             return new_url
         resp = req.get_response(self.app)
@@ -147,7 +145,7 @@ class LinkRewriterMiddleware(object):
         if resp.location:
             # self.dest_href = resp.location
             link = urlparse.urljoin(dest_href, resp.location)
-            match = re.search(r'^([^\/]*)(.*)',resp.location.lstrip('http://'))
+            match = re.search(r'^([^\/]*)(.*)',resp.location.replace('http://',''))
             if match:
                 new_host = match.group(1)
                 new_path_info = match.group(2)
@@ -165,7 +163,6 @@ class MotiniRules(object):
 
     def __init__(self,rules=None):
         '''init the Motini rules.'''
-
         
         rules_xml = '''<?xml version="1.0"?>
         <ruleset>
