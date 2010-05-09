@@ -20,12 +20,10 @@ from RulesController import RulesController
 
 class Dispatcher():
     '''Dispatcher'''
-    def __init__(self,app=None,engine=None):
+    def __init__(self,app=None):
         self.start = StartController()
-        self.start.engine = engine
         self.motini = MotiniController()
         self.rules = RulesController()
-        self.rules.engine = engine
         self.app = app
 
     def __call__(self,environ,start_response):
