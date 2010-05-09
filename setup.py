@@ -18,8 +18,6 @@ setup(name='Motini',
       include_package_data=True,
       zip_safe=False,
       install_requires=[
-          'staticlxml',
-          'Deliverance',
       ],
       entry_points={
         'console_scripts': [
