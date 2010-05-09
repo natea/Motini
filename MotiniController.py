@@ -40,7 +40,7 @@ class MotiniController():
     def _proxy_middleware(self, req, caching=True):
         if not req.path_info:
             req.path_info = '/'
- 
+
         proxy_url = '''http://%s/''' % (str(self.host))
 
         # the proxied host, used for link re-writing
@@ -121,16 +121,10 @@ class LinkRewriterMiddleware(object):
         def link_repl_func(link):
             '''Rewrite all links from the proxied domain to map to the proxy itself'''
 
-            # remove relative URLs
-            if not link.startswith('http://'):
-                link = urlparse.urljoin(dest_href, link)
-
-            # a remote link, don't mess with it
             if not link.startswith(dest_href):
                 # Not a local link
+                link = urlparse.urljoin(dest_href, link)
                 return link
-
-            # a local link, change to the proxy address
             new_url = req_href + '/' + link[len(dest_href):]
             return new_url
         resp = req.get_response(self.app)
@@ -145,7 +139,7 @@ class LinkRewriterMiddleware(object):
         if resp.location:
             # self.dest_href = resp.location
             link = urlparse.urljoin(dest_href, resp.location)
-            match = re.search(r'^([^\/]*)(.*)',resp.location.replace('http://',''))
+            match = re.search(r'^([^\/]*)(.*)',resp.location.lstrip('http://'))
             if match:
                 new_host = match.group(1)
                 new_path_info = match.group(2)
@@ -168,7 +162,6 @@ class MotiniRules(object):
         <ruleset>
         <match path="/motini/theme" class="swap"/>
         <rule class="swap" suppress-standard="1">
-        <!--  <theme href="/theme/iphone.html"/>-->
         	<theme href="/theme/index.html"/>
             '''
         if rules:
