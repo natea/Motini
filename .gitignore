@@ -1,2 +1,4 @@
 ._*
 *.pyc
+/templates/template_cache/*.py
+/templates/template_cache/*.pyc

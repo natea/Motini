@@ -20,15 +20,17 @@ from RulesController import RulesController
 
 class Dispatcher():
     '''Dispatcher'''
-    def __init__(self,app=None):
+    def __init__(self,app=None,engine=None):
         self.start = StartController()
+        self.start.engine = engine
         self.motini = MotiniController()
         self.rules = RulesController()
+        self.rules.engine = engine
         self.app = app
 
     def __call__(self,environ,start_response):
         req = Request(environ)
-        if req.path_info.startswith('/start'):
+        if req.path_info == '/' or req.path_info.startswith('/start'):
             if req.method == "POST":
                 return self.start.write_rules(environ,start_response)
             return self.start.index(environ,start_response)

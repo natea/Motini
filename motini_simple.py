@@ -30,9 +30,13 @@ def main():
     from static_serve import static_serve
     from paste.httpserver import serve
 
+
     # Dispatcher is a rock-dumb URL path comarison to call the three motini functions
-    run_pipeline = Dispatcher(static_serve(path="content"))
-    serve(EvalException(run_pipeline), '0.0.0.0', 8000, socket_timeout=2)
+    app = static_serve(path="content")
+    app = Dispatcher(app)
+    app = EvalException(app)
+    
+    serve(app, '0.0.0.0', 8000, socket_timeout=2)
 
 if __name__ == '__main__':
     main()
