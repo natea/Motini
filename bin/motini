@@ -1,0 +1,34 @@
+#!/usr/bin/env python2.6
+
+import os
+
+join = os.path.join
+base = os.path.dirname(os.path.abspath(os.path.realpath(__file__)))
+base = os.path.dirname(base)
+
+import sys
+sys.path[0:0] = [
+  join(base, 'motini'), 
+  join(base, 'eggs/Deliverance-0.3c4-py2.6.egg'),
+  join(base, 'eggs/simplejson-2.1.1-py2.6-macosx-10.6-universal.egg'),
+  join(base, 'eggs/chardet-1.0.1-py2.6.egg'),
+  join(base, 'eggs/WSGIFilter-0.2-py2.6.egg'),
+  join(base, 'eggs/PasteScript-1.7.3-py2.6.egg'),
+  join(base, 'eggs/distribute-0.6.12-py2.6.egg'),
+  join(base, 'eggs/Paste-1.7.3.1-py2.6.egg'),
+  join(base, 'eggs/DevAuth-0.1-py2.6.egg'),
+  join(base, 'eggs/WebError-0.10.2-py2.6.egg'),
+  join(base, 'eggs/Pygments-1.3.1-py2.6.egg'),
+  join(base, 'eggs/Tempita-0.4-py2.6.egg'),
+  join(base, 'eggs/WSGIProxy-0.2-py2.6.egg'),
+  join(base, 'eggs/WebOb-0.9.8.jarn.1-py2.6.egg'),
+  join(base, 'eggs/lxml-2.2.5-py2.6-macosx-10.6-universal.egg'),
+  join(base, 'eggs/HTTPEncode-0.1-py2.6.egg'),
+  join(base, 'eggs/PasteDeploy-1.3.3-py2.6.egg'),
+  join(base, 'eggs/httplib2-0.6.0-py2.6.egg'),
+  ]
+
+import motini_simple
+
+if __name__ == '__main__':
+    motini_simple.main()
