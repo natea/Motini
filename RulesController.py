@@ -29,18 +29,6 @@ class RulesController(BaseController):
             data['rules'] = None            
         
         rules_xml = self.show_template('rules.mako',data)
-        # <ruleset>
-        # <match path="/motini/theme" class="swap"/>
-        # <rule class="swap" suppress-standard="1">
-        # <!--  <theme href="/theme/iphone.html"/>-->
-        #   <theme href="/theme/index.html"/>
-        #     '''
-        # if rules:
-        #     for rule in rules:
-        #         rules_xml += '''<%s content="%s" theme="%s" />'''% (rule.action,rule.content,rule.theme)
-        # rules_xml += '''
-        # </rule>
-        # </ruleset>'''
         resp = Response()
         resp.headerlist = [('Content-type', 'text/xml; charset=UTF-8')]
         resp.body = rules_xml
