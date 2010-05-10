@@ -30,7 +30,6 @@ class RulesController():
         <ruleset>
         <match path="/motini/theme" class="swap"/>
         <rule class="swap" suppress-standard="1">
-        <!--  <theme href="/theme/iphone.html"/>-->
         	<theme href="/theme/index.html"/>
             '''
         if rules:

@@ -10,6 +10,24 @@ Motini works by leveraging the Deliverance middleware proxy, which reads a rules
 
 Motini provides a jQuery-based UI to select these elements and write out the resulting rules file as XML. This rules file can then be used in a production environment with the Deliverance proxy using these rules to govern the HTML transformations. The Deliverance proxy sits in between Apache (or whatever HTTP server you use) and your CMS to transform the HTML before it's returned to the browser.
 
+Installing Motini
+=================
+
+To install Motini, you must first check it out from Github and then run the buildout which will fetch all the dependencies::
+
+    $ git clone
+    $ cd Motini
+    $ python bootstrap.py --distribute
+    $ ./bin/buildout -v
+    $ ./bin/motini
+    serving on 0.0.0.0:8000 view at http://127.0.0.1:8000
+
+Alternatively, if you already have the system-wide dependencies (libxml2 and libxslt) installed, then you can install just the Motini egg using pip::
+
+    $ pip install -E Motini/ -e git+git://github.com/natea/Motini.git#egg=Motini
+
+This will create a virtualenv and install the egg inside that virtualenv along with all of the egg dependencies (Deliverance, lxml, etc).
+    
 Getting started with Motini
 ===========================
 

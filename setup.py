@@ -13,14 +13,15 @@ setup(name='Motini',
       author='Nate Aune',
       author_email='natea@jazkarta.com',
       url='http://natea.github.com/Motini',
-      license='GPL',
+      license='MIT',
       packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
       include_package_data=True,
       zip_safe=False,
       install_requires=[
+        'Deliverance',
       ],
-      entry_points={
-        'console_scripts': [
-          'motini = motini.motini_simple:main',
-          ]},      
+      entry_points="""
+      [console_scripts]
+      motini = motini.motini_simple:main
+      """
       )
