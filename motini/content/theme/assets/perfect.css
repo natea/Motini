@@ -1,0 +1,597 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* Reset CSS */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+}
+
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+}
+
+/* remember to highlight inserts somehow! */
+ins {
+	text-decoration: none;
+}
+del {
+	text-decoration: line-through;
+}
+
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+body {
+	background: url(bg.jpg) repeat-x #fff;
+	margin: 0;
+	font: 12px Arial, Helvetica, sans-serif;
+	color: #010101;
+}
+
+label {
+	width: 100%;
+	display: block;
+}
+
+a {
+	color: #000;
+	text-decoration: none;
+}
+
+p.center {
+	width: 100%;
+	text-align: center;
+}
+
+#top {
+	height: 260px;
+	width: 100%;
+}
+
+		#banner {
+			background: url(banner.jpg);
+			width: 960px;
+			height: 260px;
+			margin: 0 auto;
+			overflow: hidden;
+		}
+		
+				ul#nav {
+					background: url(nav_bg.jpg);
+					width: 949px;
+					height: 33px;
+					position: relative;
+					top: 14px;
+					left: 5px;
+					padding: 3px 0 0 0;
+					text-align: center;
+				}
+				
+						ul#nav li {
+							display: inline;
+							background: url(nav_border.jpg) right no-repeat;
+							padding: 5px 2px 5px 0;	
+						}
+						
+						ul#nav li#last {
+							background: none;
+							padding: 0;
+						}
+						
+					
+						
+								ul#nav li a {
+									display: inline-block;
+									padding: 0 30px;
+									line-height: 28px;
+									height:28px;
+									color: #000;
+									text-decoration: none;
+									
+									
+								}
+								
+								ul#nav li a:hover {
+									background: url(roll.jpg) repeat-x #525252 center center;
+									color: #fff;
+									padding: 0 29px;
+									border-left: 1px solid #525252;
+									border-right: 1px solid #525252;
+								}
+								
+		#banner_text {
+			position: relative;
+			top: 113px;
+			width: 300px;
+			height: 50px;
+			line-height: 24px;
+			text-shadow: 0 1px 0 #f9c22e;
+		}
+		
+		a#learn_more {
+			background: url(learn_button.jpg);
+			width: 176px;
+			height: 40px;
+			display: block;
+			position: relative;
+			top: 120px;
+			box-shadow: 0px 0px 15px #d9880e;
+			-webkit-box-shadow: 0 0 15px #d9880e;
+			-moz-box-shadow: 0 0 15px #d9880e;
+		}
+		
+		a#learn_more span img {
+			visibility: hidden;
+			overflow: hidden;
+			height: 0;
+			width: 0;
+		}
+		
+		a#learn_more:hover span img {
+			visibility: visible;
+			width: 176px;
+			height: 40px;
+		}
+		
+		a#facebook {
+			background:	 url(facebook.jpg);
+			position: relative;
+			top: -17px;
+			left: 433px;
+			display: block;
+			width: 26px;
+			height: 26px;
+		}
+		
+		a#twitter {
+			background:	 url(twitter.jpg);
+			position: relative;
+			top: -7px;
+			left: 433px;
+			display: block;
+			width: 26px;
+			height: 27px;
+		}
+		
+		a#youtube {
+			background:	 url(youtube.jpg);
+			position: relative;
+			top: 4px;
+			left: 433px;
+			display: block;
+			width: 26px;
+			height: 26px;
+		}
+		
+#under_banner {
+	width: 100%;
+	height: 185px;
+}
+
+		#under_banner_container {
+			width: 960px;
+			height: 175px;
+			margin: 0 auto;
+			padding: 10px 0 0 0;
+			color: #f4cea5;
+			font-size: 11px;
+			line-height: 18px;
+			overflow: hidden;
+		}
+		
+				#under_banner_container .col {
+					width: 227px;
+					float: left;
+					margin: 0 14px 0 0;
+				}
+				
+				#under_banner_container .col_last {
+					width: 227px;
+					float: left;
+				}
+		
+						#under_banner_container .col img, #under_banner_container .col_last img {
+							border: 5px solid #fff;
+							margin: 0 0 5px 0;
+						}
+						
+#content_bg {
+	background: url(content_area_bg.jpg) repeat-x bottom;
+}
+
+		#content_area {
+			width: 960px;
+			margin: 0 auto;
+			padding: 14px 0;
+		}
+		
+				#left {
+					float: left;
+					width: 224px;
+				}
+		
+						.side_head {
+							background:url(side_head.png);
+							width: 200px;
+							height: 37px;
+							color: #fff;
+							font-size: 14px;
+							font-weight: bold;
+							line-height: 37px;
+							padding: 0 12px;
+							text-shadow: 1px 1px 0px #ce921b;
+						}
+						
+						.side_content {
+							background: url(side_content.jpg) no-repeat;
+							min-height: 99px;
+							width: 200px;
+							border-left: 1px solid #c9c9c9;
+							border-right: 1px solid #c9c9c9;
+							color: #6e6e6e;
+							padding: 11px;
+						}
+						
+								.side_content a {
+									color: #6e6e6e;
+									text-decoration: none;
+								}
+								
+								.side_content a:hover {
+									text-decoration: underline;
+								}
+						
+						.side_foot {
+							background: url(side_foot.png);
+							width: 224px;
+							height: 23px;
+							margin: 0 0 10px 0;
+						}
+						
+						.side_content2 {
+							background: url(side_content2.jpg) repeat-x #f7aa21;
+							min-height: 99px;
+							width: 200px;
+							padding: 11px;
+							border-left: solid 1px #dcab39;
+							border-right: solid 1px #d4ab40;
+							color: #fff;
+							font-weight: bold;
+						}
+						
+								.side_content2 a {
+									color: #fff;
+									text-decoration: none;
+									font-size: 10px;
+								}
+								
+								.side_content2 a:hover {
+									text-decoration: underline;
+								}
+								
+								.side_content2 p {
+									line-height: 24px;
+								}
+						
+						.side_foot2 {
+							background: url(side_foot2.png);
+							width: 224px;
+							height: 28px;
+							margin: -10px 0 0 0;
+						}
+						
+						.input {
+							background: url(input.png);
+							width: 190px;
+							height: 27px;
+							border: none;
+							margin: 10px 0;
+							padding: 0 5px;
+						}
+						
+						#login {
+							background: url(login.png);
+							width: 107px;
+							height: 24px;
+							padding: 0;
+							border: none;
+							cursor: pointer;
+							box-shadow: 0 0 10px #d2d2d2;
+							-moz-box-shadow: 0 0 10px #d2d2d2;
+							-webkit-box-shadow: 0 0 10px #d2d2d2;
+							margin: 10px 46px 1px 47px;
+						}
+						
+						#vote {
+							background: url(vote.png);
+							width: 107px;
+							height: 24px;
+							padding: 0;
+							border: none;
+							cursor: pointer;
+							box-shadow: 0 0 10px #dd9c24;
+							-moz-box-shadow: 0 0 10px #dd9c24;
+							-webkit-box-shadow: 0 0 10px #dd9c24;
+							margin: 10px 46px 1px 47px;
+						}
+						
+				#middle {
+					float: left;
+					width: 483px;
+					margin: 0 0 0 18px;
+				}
+				
+						#middle h1, #middle a h1 {
+							color: #373737;
+							font-size: 18px;
+							font-weight: bold;
+							text-shadow: 1px 1px 0px #fff;
+							text-decoration: none;
+							margin: 0 0 2px 0;
+						}
+						
+						#middle h2 {
+							color: #f8af28;
+							font-size:18px;
+							text-shadow: 2px 2px 4px #ececec;
+							margin: 5px 0;
+						}
+						
+						#middle small, #middle small a {
+							font-size: 10px;
+							color: #817f7f;
+							text-transform: uppercase;
+						}
+						
+						#middle hr {
+							background: url(hr.png);
+							width: 483px;
+							height: 14px;
+							border: none;
+						}
+						
+						img.thumb {
+							float: left;
+							border: 5px solid #fff;
+							margin: 0 5px 5px 0;
+						}
+						
+						.post {}
+						
+								.post p {
+									color: #5d5d5d;
+									font-size: 11px;
+									line-height: 24px;
+								}
+								
+								.post blockquote {
+									float: right;
+									width: 130px;
+									color: #5d5d5d;
+									font-size: 12px;
+									font-family: Georgia, "Times New Roman", Times, serif;
+									padding: 15px 25px;
+									font-style: italic;
+									border: 1px solid #dcdcdc;
+									line-height: 24px;
+									display: block;
+									margin: 10px 0 10px 10px;
+									
+								}
+								
+								.post blockquote:first-letter { 
+									font-size: 48px;
+									display: block;
+									font-style: normal;
+								}
+								
+				#right {
+					width: 224px;
+					float: right;
+				}
+				
+						#right ul#menu {
+							width: 222px;
+							border-left: 1px solid #c9c9c9;
+							border-right: 1px solid #c9c9c9;
+						}
+						
+								#right ul#menu li {
+									width: 220px;
+									border-left: 1px solid #fff;
+									border-right: 1px solid #fff;
+								}
+								
+										#right ul#menu li a {
+											background: url(menu.jpg) repeat-x;
+											width: 200px;
+											height: 31px;
+											display: block;
+											font-size: 12px;
+											color: #6e6e6e;
+											text-decoration: none;
+											line-height: 32px;
+											padding: 0 10px;
+										}
+										
+										#right ul#menu li a:hover {
+											background: url(menu_roll.jpg) repeat-x;
+											color: #fff;
+										}
+										
+#footer {
+	background: url(footer_bg.jpg) repeat-x #f90;
+	width: 100%;
+	height: 152px;
+}
+
+		#footer_content {
+			background: url(footer.jpg);
+			width: 960px;
+			height: 132px;
+			margin: 0 auto;
+			padding: 10px 0;
+			line-height: 58px;
+			font-size: 11px;
+			color: #fff;
+			font-weight: bold;
+			overflow: hidden;
+		}
+		
+				#footer_content a {
+					color: #fff;
+					text-decoration: none;
+				}
+		
+				a.cloud {
+					background: url(cloud_access.png);
+					width: 233px;
+					height: 89px;
+					display: block;
+					float: left;
+					margin: 0 9px 0 0;
+				}
+				
+				a.cloud_last {
+					background: url(cloud_access.png);
+					width: 233px;
+					height: 89px;
+					display: block;
+					float: left;
+				}
+								
+		
+/*
+ * jQuery Nivo Slider v1.9
+ * http://nivo.dev7studios.com
+ *
+ * Copyright 2010, Gilbert Pellegrom
+ * Free to use and abuse under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ * 
+ * March 2010
+ */
+
+#slider {
+	position: relative;
+	top: -137px;
+	left: 485px;
+	width: 465px;
+	height: 180px;
+} 
+
+#slider img {
+	position:absolute;
+	top:0px;
+	left:0px;
+	display:none;
+}
+ 
+/* The Nivo Slider styles */
+.nivoSlider {
+	position:relative;
+}
+.nivoSlider img {
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+/* If an image is wrapped in a link */
+.nivoSlider a.nivo-imageLink {
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	border:0;
+	padding:0;
+	margin:0;
+	z-index:60;
+	display:none;
+}
+/* The slices in the Slider */
+.nivo-slice {
+	display:block;
+	position:absolute;
+	z-index:50;
+	height:100%;
+}
+/* Caption styles */
+.nivo-caption {
+	position:absolute;
+	left:0px;
+	bottom:0px;
+	background:#000;
+	color:#fff;
+	opacity:0.8; /* Overridden by captionOpacity setting */
+	width:100%;
+	z-index:89;
+}
+.nivo-caption p {
+	padding:5px;
+	margin:0;
+}
+/* Direction nav styles (e.g. Next & Prev) */
+.nivo-directionNav a {
+	position:absolute;
+	top:40%;
+	z-index:99;
+	cursor:pointer;
+	background: url(arrows.png) no-repeat;
+	width: 32px;
+	height: 34px;
+	display: block;
+	text-indent: -9999px;
+}
+a.nivo-nextNav {
+	background-position:-32px 0;
+	right:10px;
+}
+a.nivo-prevNav {
+	left:10px;
+}
+/* Control nav styles (e.g. 1,2,3...) */
+.nivo-controlNav a {
+	position:relative;
+	z-index:99;
+	cursor:pointer;
+}
+.nivo-controlNav a.active {
+	font-weight:bold;
+}
+
+/* UGLY */
+
+.clear {clear:both;}
