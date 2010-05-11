@@ -27,6 +27,7 @@ setup(name='Motini',
       zip_safe=False,
       install_requires=[
         'Deliverance',
+        'Mako',
       ],
       entry_points="""
       [console_scripts]
