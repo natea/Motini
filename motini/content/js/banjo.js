@@ -44,7 +44,6 @@ function selectorHL(src,top,left,height,width,stroke,color,my_id) {
             'width':width+'px',
             'background':color,
             'z-index':100});
-        side.addClass("selector_side");
         side.addClass(my_id+'_selector_side');    
         return side;
     }
@@ -287,7 +286,7 @@ function AddRule() {
             function(e) {
                 e.stopImmediatePropagation();
                 var obj = e.target;
-                if ($(e.target).hasClass('HOVER_selector_side')) {
+                if ($(e.target).hasClass('hover_selector_side')) {
                     return;
                 }
                 if (cs.current_highlight && cs.current_highlight != obj) {
@@ -301,12 +300,13 @@ function AddRule() {
                 var ht = $(obj).height();
                 var wd = $(obj).width();
 
-                $(src_body).find(".selector_side").remove();
-                cs.currentSel = new selectorHL(src_body,pos.top,pos.left,ht,wd,4,'#ff0','HOVER');
+                cs.currentSel = new selectorHL(src_body,pos.top,pos.left,ht,wd,4,'#ff0','hover');
                 // cs.currentSel = sel;
                 cs.current_highlight = obj;
             }
-        );
+        ); 
+
+	window.src_body = src_body;
     });
 
     $('#delivtarget').load(function() {
@@ -351,7 +351,7 @@ function AddRule() {
             function(e) {
                 e.stopImmediatePropagation();
                 var obj = e.target;
-                if ($(e.target).hasClass('HOVER_selector_side')) {
+                if ($(e.target).hasClass('hover_selector_side')) {
                     return;
                 }
                 if (cs.current_highlight && cs.current_highlight != obj) {
@@ -365,8 +365,7 @@ function AddRule() {
                 var ht = $(obj).height();
                 var wd = $(obj).width();
 
-                $(theme_body).find(".selector_side").remove();
-                cs.currentSel = new selectorHL(theme_body,pos.top,pos.left,ht,wd,4,'#f0f','HOVER');
+                cs.currentSel = new selectorHL(theme_body,pos.top,pos.left,ht,wd,4,'#f0f','hover');
                 // cs.currentSel = sel;
                 cs.current_highlight = obj;
             }
