@@ -277,7 +277,7 @@ function AddRule() {
                 if (ss) {
                     ss.clear();
                 }
-                ss = new selectorHL(src_body,pos.top,pos.left,ht,wd,4,'red','FIXED');
+                ss = new selectorHL(src_body,pos.top,pos.left,ht,wd,4,'red','fixed');
                 currentDeliveranceRule.contentRule = selector;
                 return false;
         });
