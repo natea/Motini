@@ -302,7 +302,7 @@ function AddRule() {
                 var wd = $(obj).width();
 
                 $(src_body).find(".selector_side").remove();
-                cs.currentSel = new selectorHL(src_body,pos.top,pos.left,ht,wd,2,'#ff0','HOVER');
+                cs.currentSel = new selectorHL(src_body,pos.top,pos.left,ht,wd,4,'#ff0','HOVER');
                 // cs.currentSel = sel;
                 cs.current_highlight = obj;
             }
@@ -366,7 +366,7 @@ function AddRule() {
                 var wd = $(obj).width();
 
                 $(theme_body).find(".selector_side").remove();
-                cs.currentSel = new selectorHL(theme_body,pos.top,pos.left,ht,wd,2,'#f0f','HOVER');
+                cs.currentSel = new selectorHL(theme_body,pos.top,pos.left,ht,wd,4,'#f0f','HOVER');
                 // cs.currentSel = sel;
                 cs.current_highlight = obj;
             }
