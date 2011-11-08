@@ -345,6 +345,31 @@ function AddRule() {
                 $('#status').html($('#status').html() + 'No content rule yet<br/>')
             }
             return false;
-        });
+	    });
+        var theme_body = $(this).contents().find("body");
+	$(theme_body).mouseover(
+            function(e) {
+                e.stopImmediatePropagation();
+                var obj = e.target;
+                if ($(e.target).hasClass('HOVER_selector_side')) {
+                    return;
+                }
+                if (cs.current_highlight && cs.current_highlight != obj) {
+                    if (cs.currentSel) {
+                        cs.currentSel.clear();
+                    }
+                }
+       
+                var pos = $(obj).offset();
+                
+                var ht = $(obj).height();
+                var wd = $(obj).width();
+
+                $(theme_body).find(".selector_side").remove();
+                cs.currentSel = new selectorHL(theme_body,pos.top,pos.left,ht,wd,2,'#f0f','HOVER');
+                // cs.currentSel = sel;
+                cs.current_highlight = obj;
+            }
+	);						
     });
 });
