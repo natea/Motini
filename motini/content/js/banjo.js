@@ -44,7 +44,8 @@ function selectorHL(src,top,left,height,width,stroke,color,my_id) {
             'width':width+'px',
             'background':color,
             'z-index':100});
-        side.attr('class',my_id+'_selector_side');    
+        side.addClass("selector_side");
+        side.addClass(my_id+'_selector_side');    
         return side;
     }
 
@@ -300,6 +301,7 @@ function AddRule() {
                 var ht = $(obj).height();
                 var wd = $(obj).width();
 
+                $(src_body).find(".selector_side").remove();
                 cs.currentSel = new selectorHL(src_body,pos.top,pos.left,ht,wd,2,'#ff0','HOVER');
                 // cs.currentSel = sel;
                 cs.current_highlight = obj;
