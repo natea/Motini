@@ -22,18 +22,22 @@ class Usage(Exception):
 
 import urlparse
 
-def main():
-    '''A simple server startup if module is called directly'''
-    from paste.evalexception import EvalException
-
+def app_factory(global_conf=None, **app_conf):
     # a stupid static file server to serve data in 'content'
     from static_serve import static_serve
-    from paste.httpserver import serve
-
 
     # Dispatcher is a rock-dumb URL path comarison to call the three motini functions
     app = static_serve(path="content")
     app = Dispatcher(app)
+    return app
+
+def main():
+    '''A simple server startup if module is called directly'''
+    from paste.evalexception import EvalException
+    from paste.httpserver import serve
+
+
+    app = app_factory()
     app = EvalException(app)
     
     serve(app, '0.0.0.0', 8000, socket_timeout=2)

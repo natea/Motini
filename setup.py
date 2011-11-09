@@ -32,6 +32,9 @@ setup(name='Motini',
       entry_points="""
       [console_scripts]
       motini = motini.motini_simple:main
+
+      [paste.app_factory]
+      main = motini.motini_simple:app_factory
       """
       )
 
