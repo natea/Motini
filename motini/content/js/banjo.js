@@ -271,8 +271,8 @@ function AddRule() {
                 var pos = $(obj).offset();
                 // console.log(pos);
 
-                var ht = $(obj).height();
-                var wd = $(obj).width();
+                var ht = $(obj).outerHeight();
+                var wd = $(obj).outerWidth();
                 // global
                 if (ss) {
                     ss.clear();
@@ -297,8 +297,8 @@ function AddRule() {
        
                 var pos = $(obj).offset();
                 
-                var ht = $(obj).height();
-                var wd = $(obj).width();
+                var ht = $(obj).outerHeight();
+                var wd = $(obj).outerWidth();
 
                 cs.currentSel = new selectorHL(src_body,pos.top,pos.left,ht,wd,4,'#ff0','hover');
                 // cs.currentSel = sel;
@@ -323,8 +323,8 @@ function AddRule() {
             // parent = getCSSSelector($(this).parent());
             // highlight the element in red
             var pos = $(obj).offset();
-            var ht = $(obj).height();
-            var wd = $(obj).width();
+            var ht = $(obj).outerHeight();
+            var wd = $(obj).outerWidth();
             // global
             if (ts) {
                 ts.clear();
@@ -362,8 +362,8 @@ function AddRule() {
        
                 var pos = $(obj).offset();
                 
-                var ht = $(obj).height();
-                var wd = $(obj).width();
+                var ht = $(obj).outerHeight();
+                var wd = $(obj).outerWidth();
 
                 cs.currentSel = new selectorHL(theme_body,pos.top,pos.left,ht,wd,4,'#f0f','hover');
                 // cs.currentSel = sel;
