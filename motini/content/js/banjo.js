@@ -88,7 +88,7 @@ function getCSSSelector(obj) {
         } else {
             var tag = obj[0].tagName.toLowerCase();
             if (obj.attr('class')) {
-                tag = tag + "." + obj.attr('class').replace(' ', '.');
+                tag = tag + "." + obj.attr('class').replace(/ /g, '.');
             }
             selector = tag + " " + selector;
             if (tag === 'html') {
